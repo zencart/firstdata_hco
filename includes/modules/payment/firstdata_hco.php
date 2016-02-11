@@ -477,9 +477,7 @@ class firstdata_hco extends base {
   /**
    * Used to do any debug logging / tracking / storage as required.
    */
-  function _debugActions($response, $mode, $order_time= '', $sessID = '') {
-    global $db, $messageStack, $insert_id;
-
+  function _debugActions($response, $mode, $order_time= '') {
     if ($order_time == '') $order_time = date("F j, Y, g:i a");
     $response['url'] = $this->form_action_url;
     $this->reportable_submit_data['url'] = $this->form_action_url;
