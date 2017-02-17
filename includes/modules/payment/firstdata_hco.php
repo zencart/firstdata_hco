@@ -21,7 +21,7 @@ class firstdata_hco extends base {
   /**
    * $moduleVersion is the plugin version number
    */
-  var $moduleVersion = '1.00';
+  var $moduleVersion = '1.01';
 
   /**
    * $title is the displayed name for this payment method
@@ -223,7 +223,9 @@ class firstdata_hco extends base {
       'x_customer_ip' => zen_get_ip_address(),
       'x_description' => 'Website Purchase from ' . str_replace('"',"'", STORE_NAME),
       'x_invoice_num' => $next_order_id,
+      'x_po_num' => $next_order_id, // customer reference number; in this case we pass the proposed order ID value.
 //       'x_method' => 'CC', // if not passed, then the payment types can be configured in the PaymentPage including enabling PayPal and other features.
+//       'x_ga_tracking_id' => '', // Enter Google Analytics Tracking ID if you want this payment page included in your funnel
     );
 
     // lookup shipping and discount amounts
