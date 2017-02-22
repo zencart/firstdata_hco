@@ -27,13 +27,6 @@ There are 9 pages of settings available. The following are the ones that you nee
 `1`. General 
  - Page Title - Whatever you want this page to be named. This will be the title shown on the payment page.
  - "Return to your Store" URL - the URL to your store.
- - Enable Level 3 Processing if you want lower rates. Check with your account rep to see if you qualify.
-
-`4`. Receipt Page
- - Return Link Method: This setting is auto-determined by the HCO module. But if you want to make a choice, choose **REDI** or **AUTO-POST** or **LINK**
- - "Receipt Link URL" **needs to point to your store's checkout_process page**, which is at:
-
-     `https://your_domain.com/index.php?main_page=checkout_process`
 
 `8`. Appearance
  - Header Logo: Upload a Logo if you wish to brand your payment page 
@@ -46,11 +39,33 @@ There are 9 pages of settings available. The following are the ones that you nee
 
 Finally, click `Save Changes` to save all the settings you've altered.
 
+--
+### Optional
+`4`. Receipt Page
+ - Return Link Method: This is set to AUTO-POST inside all transactions sent by this module, regardless of this setting.
 
-### Level 3 Processing Support
-Level 3 support can help reduce your interchange rates/fees.
 
-Zen Cart already passes all the Level 3 data, but if you want to benefit from it, you need to have your account rep enable Level 2 and Level 3 data support in your HCO Terminal. Contact them for assistance.
+ - "Receipt Link URL" - This module automatically sends the correct URL with each transaction. It will be set to your store's checkout_process page, which is at:
+
+     `https://your_domain.com/index.php?main_page=checkout_process`
+     
+     [NOTE: The module sets this URL inside each transaction, so technically you can leave this blank.]
+
+
+
+## Level 3 Processing Support
+Level 3 Processing is usually only necessary if you are processing Government credit cards.
+
+Zen Cart already passes all the Level 3 data, but if you want to benefit from it, you need to enable Level 3 data support in 3 places:
+
+1. In your First Data Terminal. (Login to the GlobalGateway account, click on Home, then Terminals, then your business name, then the terminal (if more than one, choose the one for ECOMM / ecommerce). Then enable the Level 3 feature, and save.)
+
+2. In your Hosted Checkout Page settings: Go to your Payment Pages screen, click on the page ID. Then on the General tab, check the box for Enable Level 3 Processing, and click Save.
+
+3. In this payment module. Go to your Zen Cart Admin->Modules->Payment screen, click on Hosted Checkout Pages, Edit, and set "Enable Level 3 Processing" to 'Yes'.
+
+
+NOTE: MasterCard Level 1 (Consumer) cards won't allow Level 3 data for settlement, so might be rejected AFTER the transaction is initially approved. If this happens to you regularly, then you may need to turn OFF all Level 3 support in the module. The downside is you may pay higher interchange rates for those Level 3 transactions as a result. This is a limitation by MasterCard.
 
 
 
